@@ -48,17 +48,15 @@ public class View extends JPanel implements Observer {
     }
 
     /**
-     * updatet die View
+     * updates the view
      */
     @Override
     public void update(Observable obs, Object o) {
 		// TODO Auto-generated method 
 
-        // wenn o dann alle  buttons apdaten
+        // If object is empty, then update all
         if (o != null) {
-            if ((boolean) o) {
-                updateButtons();
-            }
+            updateButtons();
         }
         this.bombs = setLabel(this.bombs, "Bombs:  " + Integer.toString(model.remainingBombs()));
         this.gameState = setLabel(this.gameState, "Status:  " + model.getState());
@@ -68,9 +66,9 @@ public class View extends JPanel implements Observer {
 
     /**
      *
-     * @param label setzt das label
-     * @param string der Text
-     * @return gibt ein label zur�ck mit String
+     * @param label
+     * @param string sets the text
+     * @return returns the label wit the string setted
      */
     private JLabel setLabel(JLabel label, String string) {
         if (!(label instanceof JLabel)) {
@@ -83,14 +81,17 @@ public class View extends JPanel implements Observer {
 
     }
 
+    /**
+     * @return the view
+     */
     public JPanel getview() {
         return this.view;
     }
 
     /**
-     * erstellt reset Button
+     * creates restart button
      *
-     * @return
+     * @return the restart button
      */
     public JButton restartButton() {
         JButton button = new JButton("Restart");
@@ -113,7 +114,7 @@ public class View extends JPanel implements Observer {
     }
 
     /**
-     * buttons loeschen
+     * delete buttons
      */
     private void removeButtons() {
         for (int i = 0; i < this.model.getHeight(); i++) {
@@ -128,7 +129,7 @@ public class View extends JPanel implements Observer {
     }
 
     /**
-     * buttons erstellen
+     * create buttons
      */
     private void buildbuttons() {
 
